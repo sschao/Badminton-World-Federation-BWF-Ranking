@@ -123,6 +123,7 @@ def scrape_bwf_scores(player_url):
     :param player_url: player bwf url (should be previously scraped)
     :return: dataframe with all of the games that the player player
     '''
+    driver = webdriver.Chrome('C:\webdrivers\chromedriver.exe')
     df_player = pd.DataFrame()
     driver.get(player_url)
     player_html_link = driver.current_url
@@ -184,8 +185,8 @@ def scrape_bwf_scores(player_url):
                     result = tournament_match.find('strong').text
                     length = tournament_match.findAll("div", {"class": "timer"})[0].text
                     player_round = tournament_match.find('div', {'class': 'player-result-round'}).text
-                    print(player_round.replace('\n', '').
-                          lstrip(' ').rstrip(' ').title())
+                    # print(player_round.replace('\n', '').
+                    #       lstrip(' ').rstrip(' ').title())
                     df_match = pd.DataFrame([[tournament_name, match_type, tournament_year, tournament_day, player,
                                               opponent, bwf_score, player_points, opponent_points, result, length,
                                               player_html_link, opponent_link, tournament_match_number,

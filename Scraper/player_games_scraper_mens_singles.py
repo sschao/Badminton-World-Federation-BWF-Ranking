@@ -199,8 +199,8 @@ for page_num in tqdm(range(page_num_csv+1)): #singles and add one bc python inde
                         result = tournament_match.find('strong').text
                         length = tournament_match.findAll("div", { "class" : "timer" })[0].text
                         player_round = tournament_match.find('div', {'class':'player-result-round'}).text
-                        print(player_round.replace('\n', '').
-                                            lstrip(' ').rstrip(' ').title())
+                        # print(player_round.replace('\n', '').
+                        #                     lstrip(' ').rstrip(' ').title())
                         df_match = pd.DataFrame([[tournament_name, match_type, tournament_year, tournament_day, player,
                                                   opponent,bwf_score,player_points, opponent_points, result,length,
                                                   player_html_link, opponent_link, tournament_match_number, tournament_match_number_type]],
