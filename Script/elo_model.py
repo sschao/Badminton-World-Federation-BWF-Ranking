@@ -110,7 +110,6 @@ def create_player_df(df_players, player_bwf_link):
     df_opponent['Result (W/L)'] = df_opponent['Result (W/L)'].map({'W':'L', 'L':'W', '':'', 'BYE':'BYE', '-':'-', 'TBC':'TBC'})
     df_opponent['Score'] = df_opponent['Score'].apply(reverse_score_string)
     df_player_final = pd.concat([df_player, df_opponent])
-    df_player
     df_player_sorted = df_player_final.sort_values(
         by=['Year', 'Week Number', 'Match Type Ordering', 'Match Type Number'], ascending=True)
     #keep only the final elo rating per tournament
